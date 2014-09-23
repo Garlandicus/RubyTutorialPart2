@@ -55,4 +55,16 @@ describe "StaticPages" do
     	expect(page).to have_title("#{base_title} | Contact")
     end
   end
+
+  describe "Directions page" do
+    it "should have the content 'Directions'" do
+      visit '/static_pages/directions'
+      expect(page).to have_content('Directions')
+    end
+
+    it "should have the right title" do
+      visit '/static_pages/contact'
+      expect(page).to have_title("#{base_title} | Contact")
+    end
+  end
 end
