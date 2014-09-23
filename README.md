@@ -10,7 +10,10 @@ Progress
 2. Complete - See [here](http://github.com/Garlandicus/RubyTutorial/tree/chapter-two)
 3. Complete 
 4. Complete
-5. Started
-6. Pending
+5. Complete - Live Heroku Demo [here](http://protected-tundra-8731.herokuapp.com/)
+6. Started
 7. Pending
 8. Pending
+9. Pending
+10.Pending
+11.Pending
