@@ -9,8 +9,8 @@ Progress
 1. Complete - See [here](http://github.com/Garlandicus/RubyTutorial)
 2. Complete - See [here](http://github.com/Garlandicus/RubyTutorial/tree/chapter-two)
 3. Complete 
-4. Started
-5. Pending
+4. Complete
+5. Started
 6. Pending
 7. Pending
 8. Pending
