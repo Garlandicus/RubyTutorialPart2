@@ -11,8 +11,8 @@ Progress
 3. Complete 
 4. Complete
 5. Complete - Live Heroku Demo [here](http://protected-tundra-8731.herokuapp.com/)
-6. Started
-7. Pending
+6. Complete
+7. Started
 8. Pending
 9. Pending
 10. Pending
