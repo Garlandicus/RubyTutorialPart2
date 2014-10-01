@@ -13,7 +13,7 @@ Progress
 5. Complete
 6. Complete
 7. Complete - Live Heroku Demo [here](https://protected-tundra-8731.herokuapp.com/)
-8. Pending
+8. Currently on step 8.3.2
 9. Pending
 10. Pending
 11. Pending
