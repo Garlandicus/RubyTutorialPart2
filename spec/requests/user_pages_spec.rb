@@ -59,7 +59,8 @@ describe "UserPages" do
           end
 
           it { should have_title('Sign up') } 
-          it { should have_content('Name is too long') } 
+          it { should have_error_message('error') } 
+          it { should have_error_reason('Name is too long') } 
         end
 
         describe "name empty" do
@@ -69,7 +70,8 @@ describe "UserPages" do
           end
 
           it { should have_title('Sign up') } 
-          it { should have_content('Name can\'t be blank') } 
+          it { should have_error_message('error') } 
+          it { should have_error_reason('Name can\'t be blank') } 
         end
 
         describe "email empty" do
@@ -79,7 +81,8 @@ describe "UserPages" do
           end
 
           it { should have_title('Sign up') } 
-          it { should have_content('Email can\'t be blank') } 
+          it { should have_error_message('error') } 
+          it { should have_error_reason('Email can\'t be blank') } 
         end
 
         describe "email invalid" do
@@ -89,7 +92,8 @@ describe "UserPages" do
           end
 
           it { should have_title('Sign up') } 
-          it { should have_content('Email is invalid') } 
+          it { should have_error_message('error') } 
+          it { should have_error_reason('Email is invalid') } 
         end
 
         describe "password blank" do
@@ -100,7 +104,8 @@ describe "UserPages" do
           end
 
           it { should have_title('Sign up') } 
-          it { should have_content('Password can\'t be blank') } 
+          it { should have_error_message('error') } 
+          it { should have_error_reason('Password can\'t be blank') } 
         end
 
         describe "password too short" do
@@ -111,7 +116,8 @@ describe "UserPages" do
           end
 
           it { should have_title('Sign up') } 
-          it { should have_content('Password is too short') } 
+          it { should have_error_message('error') } 
+          it { should have_error_reason('Password is too short') } 
         end
 
         describe "password doesn't match" do
@@ -122,17 +128,15 @@ describe "UserPages" do
           end
 
           it { should have_title('Sign up') } 
-          it { should have_content('Password confirmation doesn\'t match Password ') } 
+          it { should have_error_message('error') } 
+          it { should have_error_reason('Password confirmation doesn\'t match Password')}
         end
       end
   	end
 
   	describe "with valid information" do
   		before do
-  			fill_in "Name",			with: "Ryan Darge"
-  			fill_in "Email",		with: "my.email@mail.com"
-  			fill_in "Password",		with: "foobar"
-  			fill_in "Confirmation",	with: "foobar"
+  			 valid_signup_fill
   		end
 
   		it "should create a a user" do
@@ -141,11 +145,11 @@ describe "UserPages" do
 
       describe "after saving the user" do
         before {click_button submit }
-        let(:user) { User.find_by(email: 'my.email@mail.com') }
+        let(:user) { User.find_by(email: 'example.email@mail.com') }
 
         it { should have_link('Sign out') }
         it { should have_title(user.name) }
-        it { should have_selector('div.alert.alert-success', text: 'Welcome') }
+        it { should have_success_message('Welcome') }
       end
   	end
   end
