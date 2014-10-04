@@ -32,8 +32,12 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find(params[:id]).destroy
-    flash[:success] = "#{params[:id]} has been successfully terminated."
+    if current_user != @user
+      User.find(params[:id]).destroy
+      flash[:success] = "#{params[:id]} has been successfully terminated."
+    else
+      flash[:error] = "You can't get away from here that easy..."
+    end
     redirect_to users_url
   end
 

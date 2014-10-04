@@ -36,7 +36,7 @@ describe "UserPages" do
       describe "as an admin user" do
         let(:admin) { FactoryGirl.create(:admin) }
         before do
-          sign_in admin, no_capybara: true
+          sign_in admin
           visit users_path
         end
 
@@ -46,7 +46,11 @@ describe "UserPages" do
             click_link('delete', match: :first)
           end.to change(User, :count).by(-1)
         end
+
         it { should_not have_link('delete', href: user_path(admin)) }
+        it "should not be able to destroy itself" do
+          expect { delete user_path(admin) }.to_not change(User, :count)
+        end
       end
     end
   end

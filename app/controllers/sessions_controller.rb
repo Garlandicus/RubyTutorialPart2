@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-	before_action :not_signed_in_user, only: [:new, :create]
+	#before_action :not_signed_in_user, only: [:new, :create]
 
 	def new
 	end
@@ -24,9 +24,9 @@ class SessionsController < ApplicationController
 
 	private
 
-		def not_signed_in_user 
-			unless signed_in? ==  false
-	    		redirect_to root_url, notice: "You already did that!"
-	    	end
-	    end
+#		def not_signed_in_user 
+#			unless signed_in? ==  false
+#	    		redirect_to root_url, notice: "You already did that!"
+#	    	end
+#	    end
 end
