@@ -17,7 +17,7 @@ def valid_signup_fill
 	fill_in "Name",			with: "Ryan Darge"
 	fill_in "Email",		with: "example.email@mail.com"
 	fill_in "Password",		with: "foobar"
-	fill_in "Confirmation",	with: "foobar"
+	fill_in "Confirm Password",	with: "foobar"
 end
 
 RSpec::Matchers.define :have_success_message do |message|

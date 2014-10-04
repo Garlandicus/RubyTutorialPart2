@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :not_signed_in_user, only: [:new, :create]
   before_action :signed_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
@@ -46,7 +47,7 @@ class UsersController < ApplicationController
   end
 
   private
-  	def user_params
+  	def user_params #Remove admin after completing the exercises
   		params.require(:user).permit(:name, :email, :password, :password_confirmation)
   	end
 
@@ -66,5 +67,11 @@ class UsersController < ApplicationController
 
     def admin_user
       redirect_to(root_url) unless current_user.admin?
+    end
+
+    def not_signed_in_user
+      unless signed_in? ==  false
+        redirect_to root_url, notice: "You already did that!"
+      end
     end
 end
