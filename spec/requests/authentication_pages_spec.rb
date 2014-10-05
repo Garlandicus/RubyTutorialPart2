@@ -112,6 +112,16 @@ describe "AuthenticationPages" do
           before { delete micropost_path(FactoryGirl.create(:micropost)) }
           specify { expect(response).to redirect_to(signin_path) }
         end
+
+        describe "should not be able to delete other user microposts" do
+          let(:wrong_user) { FactoryGirl.create(:user) }
+          before do
+            FactoryGirl.create(:micropost, user: wrong_user)
+            visit user_path(wrong_user)
+          end
+
+          specify { expect(page).not_to have_link('delete') }
+        end
       end
     end
 
