@@ -14,6 +14,6 @@ Progress
 6. Complete
 7. Complete 
 8. Complete
-9. Exercises - Live Heroku Demo [here](https://protected-tundra-8731.herokuapp.com/)
-10. Pending
+9. Complete
+10. Exercises - Live Heroku Demo [here](https://protected-tundra-8731.herokuapp.com/)
 11. Pending
