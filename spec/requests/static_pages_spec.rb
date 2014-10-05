@@ -33,6 +33,21 @@ describe "StaticPages" do
           expect(page).to have_selector("li##{item.id}", text: item.content)
         end
       end
+
+      it "should show the proper number of microposts" do
+        expect(page).to have_content("#{user.microposts.count} microposts")
+      end
+
+      describe "with only one post" do
+        before do
+          user.microposts.delete_all
+          FactoryGirl.create(:micropost, user: user, content: "Just the one")
+          visit root_path
+        end
+        it "should have the right pluralization" do
+          expect(page).to have_content("#{user.microposts.count} micropost")
+        end
+      end
     end
   end
 
