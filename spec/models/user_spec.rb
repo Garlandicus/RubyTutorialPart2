@@ -210,5 +210,11 @@ describe User do
       it { should_not be_following(other_user) }
       its(:followed_users) { should_not include(other_user) }
     end
+
+    it "should destroy associated relationships" do
+      expect do
+        @user.destroy 
+      end.to change(other_user.followers, :count).by(-1)
+    end
   end
 end
